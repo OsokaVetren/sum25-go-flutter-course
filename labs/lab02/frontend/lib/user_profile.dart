@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab02_chat/user_service.dart';
 
 class UserProfile extends StatefulWidget {
   final dynamic userService;
@@ -9,7 +10,8 @@ class UserProfile extends StatefulWidget {
 }
 
 class _UserProfileState extends State<UserProfile> {
-  late Future<Map<String, String>> _userFuture;
+  // TODO: Add state for user data, loading, and error
+  // TODO: Fetch user info from userService (simulate for tests)
 
   @override
   void initState() {
@@ -23,6 +25,7 @@ class _UserProfileState extends State<UserProfile> {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Build user profile UI with loading, error, and user info
     return Scaffold(
       appBar: AppBar(title: const Text('User Profile')),
       body: FutureBuilder<Map<String, String>>(

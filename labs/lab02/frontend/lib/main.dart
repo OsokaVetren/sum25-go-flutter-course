@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'chat_screen.dart';
 import 'user_profile.dart';
 import 'chat_service.dart';
+import 'user_service.dart';
 
 void main() {
-  runApp(MyApp());
+  // TODO: Initialize and run the app
 }
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-  final ChatService chatService = ChatService();
-  final dynamic userService = null; // TODO: Replace with actual user service
+  // TODO: Initialize chatService and userService
 
   @override
   Widget build(BuildContext context) {
