@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-// UserProfile displays and updates user info
 class UserProfile extends StatefulWidget {
-  final dynamic userService; // Accepts a user service for fetching user info
+  final dynamic userService;
   const UserProfile({Key? key, required this.userService}) : super(key: key);
 
   @override
@@ -19,8 +18,7 @@ class _UserProfileState extends State<UserProfile> {
   }
 
   Future<Map<String, String>> _fetchUser() async {
-    // TODO: Fetch user info from userService
-    throw UnimplementedError();
+    return widget.userService.fetchUser();
   }
 
   @override
@@ -30,12 +28,15 @@ class _UserProfileState extends State<UserProfile> {
       body: FutureBuilder<Map<String, String>>(
         future: _userFuture,
         builder: (context, snapshot) {
-          // TODO: Display user info, loading, and error states
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
             return Center(
-                child: Text('An error occurred: \\${snapshot.error}'));
+              child: Text(
+                'An error occurred: ${snapshot.error}',
+                textAlign: TextAlign.center,
+              ),
+            );
           } else if (snapshot.hasData) {
             final user = snapshot.data!;
             return Column(
@@ -43,7 +44,6 @@ class _UserProfileState extends State<UserProfile> {
               children: [
                 Text(user['name'] ?? '', style: const TextStyle(fontSize: 24)),
                 Text(user['email'] ?? '', style: const TextStyle(fontSize: 16)),
-                // TODO: Add more user fields if needed
               ],
             );
           } else {
