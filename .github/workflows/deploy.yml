@@ -15,10 +15,11 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.1' # replace with your version
+          flutter-version: '3.22.1'
 
       - name: Install dependencies
         run: flutter pub get
+        working-directory: labs/lab07/frontend
 
       - name: Build web app  
         run: |
@@ -30,4 +31,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
+          publish_dir: labs/lab07/frontend/build/web
+
